@@ -1,0 +1,666 @@
+.main-filters {
+    box-sizing: border-box;
+    padding: 10px 40px;
+    background: #8FC9F6 !important;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.main-filters .row {
+    width: 100%;
+    gap: 10px;
+}
+.filter-button .btn-primary {
+    border-radius: 20px;
+    padding: 8px 20px;
+    background-color: #fff;
+    border: none;
+    color: #000;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.filter-button .btn-primary:hover {
+    background-color: #565e64;
+    color: #fff;
+}
+.filters {
+    display: flex;
+    gap: 10px;
+}
+.filters .form-select {
+    border-radius: 20px;
+    padding: 8px 20px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    background-color: #fff;
+}
+.filters .btn-secondary {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 20px;
+    padding: 8px 20px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    background-color: #fff;
+    color: #000;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.filters .btn-secondary:hover {
+    background-color: #565e64;
+    color: #fff;
+    border-color: #565e64;
+}
+.dropdown-toggle::after {
+    display: none !important;
+}
+
+.dropdown-multiselect {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: #fff;
+    color: #000;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    width: 100%;
+}
+
+.dropdown-toggle:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown-icon {
+    width: 16px;
+    height: 12px;
+    margin-left: 10px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: calc(100% + 5px);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 10px 0;
+    z-index: 1000;
+    width: 200px;
+}
+
+.dropdown-menu label {
+    display: block;
+    padding: 5px 15px;
+    font-size: 14px;
+    color: #000;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu label:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown-menu input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.dropdown-multiselect.open .dropdown-menu {
+    display: block;
+}
+
+.buttons-group .form-select {
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 200px;
+}
+
+.buttons-group .form-select:hover {
+    background-color: #f1f1f1;
+}
+
+.form-select:hover {
+    border-color: #adb5bd;
+    background-color: #f8f9fa;
+}
+
+.form-select option:checked {
+    background-color: #565e64;
+    color: #fff;
+    font-weight: bold;
+}
+
+.filters .badge {
+    font-size: 12px;
+    color: #fff;
+}
+
+.main-filters .btn-primary {
+    border-radius: 20px;
+    padding: 8px 20px;
+}
+
+.main-filters .btn-secondary {
+    border-radius: 20px;
+    padding: 8px 20px;
+}
+
+.main-filters .form-select {
+    border-radius: 20px;
+    padding: 8px 20px;
+}
+
+@media (max-width: 420px) {
+    .main-filters .row {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .main-filters .filter-button button, .main-filters .btn-secondary {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-filters .collapse {
+        width: 100%;
+    }
+    .dropdown-multiselect .dropdown-toggle{
+        weight: 231px;
+    }
+}
+
+.apartments-section {
+    box-sizing: border-box;
+    padding: 10px 40px;
+    background: #FFFFFF;
+    margin-top: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.apartments-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+.apartments-subtitle {
+    margin: 5px 0 20px 0;
+    font-size: 16px;
+    color: #777;
+}
+.buttons-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Відступ між кнопками на великих екранах */
+    margin-top: 10px;
+    align-items: center;
+    justify-content: space-between; /* Розподіл кнопок по ширині */
+}
+.btn-secondary.dropdown-toggle {
+    padding: 8px 20px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #000;
+    font-size: 14px;
+}
+.btn-map {
+    background: #65D6E6 !important; /* Новий фон кнопки */
+    color: #000 !important;
+    border: none !important;
+    padding: 8px 20px;
+    font-size: 14px;
+    border-radius: 20px !important;
+    width: 480px; /* Фіксована ширина кнопки */
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.btn-map .icon {
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+}
+@media (max-width: 768px) {
+    .buttons-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .btn-secondary.dropdown-toggle,
+    .btn-map {
+        width: 100%;
+        text-align: center;
+    }
+    .btn-map {
+        justify-content: center;
+    }
+    .btn-map .icon {
+        margin-left: 5px;
+    }
+}
+.property-list {
+    display: flex;
+    flex-direction: column; /* Вирівнюємо елементи вертикально */
+    align-items: center; /* Центрування по горизонталі */
+    margin: 20px auto;
+}
+.property-row {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-bottom: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    /*width: 100%;*/
+    max-width: 1240px !important;
+    /*margin: 0 auto;*/
+    height: 372px;
+}
+
+.property-images {
+    display: flex;
+    flex-direction: row;
+    width: 680px;
+    height: 372px;
+}
+
+.main-image {
+    width: 500px;
+    height: 372px;
+}
+
+.main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /*border-right: 1px solid #ddd;*/
+}
+
+.additional-images {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 10px;
+}
+
+.additional-image img {
+    width: 160px;
+    height: 120.8px;
+    object-fit: cover;
+}
+
+.property-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 560px;
+    height: 372px;
+    padding: 10px 15px;
+}
+
+.property-text .price-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.property-text .icons-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.property-text .price {
+    font-size: clamp(16px, 2vw, 20px); /* Динамічний розмір тексту */
+    font-weight: bold;
+    color: #000;
+}
+
+.property-text .icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+}
+
+.property-text .location {
+    display: flex;
+    align-items: center;
+    font-size: clamp(16px, 2.5vw, 20px); /* Динамічний розмір тексту */
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+
+.property-text .location-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
+
+.property-text .details {
+    font-size: 14px;
+    color: #666;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.property-text .characteristics {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.property-text .characteristics li {
+    margin-bottom: 5px;
+}
+
+.property-text .description {
+    font-size: 14px;
+    color: #666;
+    margin-top: 0px; /* Зменшено верхній відступ */
+    margin-bottom: 5px; /* Додано нижній відступ для зменшення простору */
+}
+
+@media (max-width: 650px) {
+    .property-text .description {
+        display: -webkit-box;
+        -webkit-line-clamp: 4; /* Кількість рядків, які потрібно показати */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis; /* Додає три крапки (...) в кінці тексту */
+    }
+}
+
+.filter-group {
+    display: flex; /* Вирівнюємо елементи в один ряд */
+    flex-wrap: wrap; /* Дозволяємо перенос елементів, якщо вони не поміщаються */
+    gap: 8px; /* Відступи між елементами */
+    margin: 0; /* Видаляємо зовнішні відступи групи */
+    padding: 0; /* Видаляємо внутрішні відступи групи */
+}
+.filter-group p{
+    margin-bottom: 5px !important;
+}
+
+.filter-object {
+    background-color: #e0f7fa; /* Голубий фон */
+    color: #007b83; /* Темно-голубий текст */
+    border-radius: 20px; /* Закруглені кути */
+    padding: 5px 10px; /* Зменшені внутрішні відступи */
+    font-size: 12px; /* Менший розмір тексту */
+    font-weight: 500; /* Напівжирний текст */
+    border: 1px solid #b2ebf2; /* Голуба рамка */
+    white-space: nowrap; /* Текст не переноситься */
+    cursor: default; /* Курсор залишається звичайним */
+    text-align: center; /* Текст по центру */
+    line-height: 1.2; /* Компактніший вертикальний інтервал */
+}
+@media (max-width: 768px) {
+    .filter-object {
+        /*font-size: 12px;*/
+        padding: 3px 6px;
+    }
+}
+@media (max-width: 480px) {
+    .filter-object {
+        padding: 2px 5px;
+    }
+}
+.property-text .date-obj {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 1);
+    margin-top: 5px; /* Зменшено верхній відступ */
+    line-height: 1.4; /* Компактний вертикальний інтервал */
+}
+/* Медіа-запити для адаптивності */
+/* Для екранів менше 1200px */
+
+@media screen and (max-width: 993px) {
+    .property-row {
+        flex-direction: column;
+        height: auto;
+        gap: 0;
+        margin: 0 auto; /* Центруємо */
+    }
+
+    .property-images {
+        flex-direction: column; /* Додаткові фото під головним */
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .main-image {
+        width: 100%;
+        height: 250px;
+    }
+
+    .additional-images {
+        display: flex;
+        flex-direction: row; /* Горизонтальне розташування */
+        gap: 5px;
+        justify-content: space-between;
+        margin: 0;
+    }
+
+    .additional-image img {
+        width: 100%; /* Додаткові фото рівномірно розтягуються */
+        height: auto;
+    }
+
+    .property-text {
+        width: 100%;
+        padding: 15px;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .property-row {
+        flex-direction: column;
+        height: auto;
+        gap: 0;
+        width: 100%;
+        margin: 0 auto 20px;
+    }
+
+    .property-list {
+        width: 80%; /* Ширина для контейнера */
+        display: flex;
+        flex-direction: column; /* Вертикальне розташування елементів */
+
+    }
+    .property-list{
+        width: 60% !important;
+        justify-content: center ; /* Центруємо в середині */
+        margin: 20px auto !important; /* Центруємо контейнер */
+    }
+
+    .property-images {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0;
+        padding: 0;
+    }
+
+    .main-image {
+        width: 520px; /* Фіксована ширина */
+        height: 372px; /* Фіксована висота */
+        flex-shrink: 0;
+    }
+
+    .main-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .additional-images {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 0;
+        margin: 0;
+        justify-content: center;
+        border-radius: 20px
+    }
+
+    .additional-image img {
+        width: 160px;
+        height: 120px;
+        object-fit: cover;
+    }
+
+    .property-text {
+        width: 100%;
+        padding: 10px 15px;
+    }
+}
+
+/* Для ще менших екранів */
+@media screen and (max-width: 768px) {
+    .main-image {
+        width: 100%; /* Займає всю ширину контейнера */
+        height: auto; /* Автоматична висота для збереження пропорцій */
+    }
+
+    .main-image img {
+        width: 100%; /* Зображення масштабується за шириною контейнера */
+        height: auto; /* Зберігає пропорції */
+        object-fit: cover; /* Центрування та обрізання, якщо потрібно */
+    }
+
+    .additional-images {
+        display: none; /* Приховуємо додаткові фото */
+    }
+
+    .property-text {
+        padding: 10px;
+    }
+}
+
+
+.load-more-container {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.btn-load-more {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Відстань між текстом та іконкою */
+    background-color: #fff !important;
+    color: #000;
+    border: 2px solid #000 !important;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 30px !important;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 400px;
+    height: 60px;
+}
+
+.btn-load-more img.reload-icon {
+    width: 18px; /* Розмір іконки */
+    height: 18px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.btn-load-more:hover {
+    background-color: #0056b3;
+    color: #fff; /* Змінюємо текст на білий під час hover */
+    transform: translateY(-2px);
+}
+
+.btn-load-more:hover img.reload-icon {
+    transform: rotate(360deg); /* Анімація обертання іконки при hover */
+}
+
+.btn-load-more:active {
+    background-color: #003f8c;
+    transform: translateY(0);
+}
+.text-center .btn-outline-dark{
+    height: 38px;
+}
+.btn-outline-dark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    width: 60px;
+    height: 60px;
+    transition: transform 0.2s ease;
+}
+
+.btn-outline-dark:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .btn-load-more {
+        width: 300px;
+        height: 50px;
+        font-size: 14px;
+    }
+
+    .btn-outline-dark {
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn-load-more {
+        width: 200px;
+        height: 40px;
+        font-size: 12px;
+    }
+
+    btn-outline-dark {
+        width: 40px;
+        height: 40px;
+        font-size: 12px;
+    }
+}
+@media (max-width: 484px) {
+.btn-group-lg>.btn, .btn-lg {
+     --bs-btn-padding-y: 0 !important;
+     --bs-btn-padding-x: 0 !important;
+    --bs-btn-font-size: 1rem !important;
+}
+}
+/*#565e64*/
+.btn.btn-dark{
+    height: 53px;
+    width: 53px;
+}

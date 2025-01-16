@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<header th:fragment="header" class="header">
+    <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <div class="col-md-2 header-logo">
+                        <a th:href="@{/home}">
+                            <img th:src="@{/photo/header-file/logo.png}" alt="Логотип" />
+                        </a>
+                    </div>
+                    <div class="col-md-7 header-search">
+                        <input type="text" class="form-control" placeholder="Район, Улица, ЖК">
+                        <img th:src="@{/photo/header-file/icon-search.png}" alt="Пошук" class="search-icon">
+                    </div>
+                    <div class="header-icons">
+                        <button class="btn navbar-toggler-icon d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" style="background-size: 2rem 2rem;">
+                        </button>
+
+                        <ul class="navbar-nav d-none d-lg-flex">
+                            <li class="nav-item mx-1">
+                                <a class="nav-link" href="#">
+                                    <img src="/photo/header-file/icon-heart.png" alt="Обране">
+                                </a>
+                            </li>
+                            <li class="nav-item mx-1">
+                                <a class="nav-link login-button" th:href="@{/properties/add}">
+                                    <img src="/photo/header-file/icon-add.png" alt="Додати оголошення">
+                                </a>
+                            </li>
+                            <li class="nav-item mx-1">
+                                <a th:if="${isAuthenticated != null and isAuthenticated}"
+                                   class="nav-link login-button"
+                                   th:href="@{/user/profile/{id}(id=${userId})}">
+                                    <img src="/photo/header-file/icon-login.png" alt="Профіль">
+                                    <span>Профіль</span>
+                                </a>
+
+                                <a th:if="${isAuthenticated == null or !isAuthenticated}"
+                                   class="nav-link login-button"
+                                   href="#"
+                                   data-modal-type="login"
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#dynamicModal">
+                                    <img src="/photo/header-file/icon-login.png" alt="Вхід">
+                                    <span>Войти</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="offcanvas offcanvas-end d-lg-none" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="sidebarMenuLabel">Меню</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрити"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <ul class="navbar-nav">
+                                <li class="nav-item mx-1">
+                                    <a class="nav-link" href="#">
+                                        <img src="/photo/header-file/icon-heart.png" alt="Обране">
+                                        <span>Избранное</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item mx-1">
+                                    <a class="nav-link" href="#">
+                                        <img src="/photo/header-file/icon-add.png" alt="Додати оголошення">
+                                        <span>Добавить объявление</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item mx-1">
+                                    <a th:if="${isAuthenticated != null and isAuthenticated}"
+                                       class="nav-link login-button"
+                                       th:href="@{/user/profile/{id}(id=${userId})}">
+                                        <img src="/photo/header-file/icon-login.png" alt="Профіль">
+                                        <span>Профіль</span>
+                                    </a>
+
+                                    <a th:if="${isAuthenticated == null or !isAuthenticated}"
+                                       class="nav-link login-button"
+                                       href="#"
+                                       data-modal-type="login"
+                                       data-bs-toggle="modal"
+                                       data-bs-target="#dynamicModal">
+                                        <img src="/photo/header-file/icon-login.png" alt="Вхід">
+                                        <span>Войти</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    <div class="modal fade" id="dynamicModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-sm modal-fullscreen-md-down" style="margin-right: 17%; margin-top: 4%;">
+            <div class="modal-content" style="border-radius:17px">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="modalTitle"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+
+</script>
+</body>
+</html>

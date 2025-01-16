@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/footer-style.css}">
+    <title>Footer Design</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<footer th:fragment="footer" class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 footer-text">
+                <p class="mb-2 titles" style="font-weight: bold !important;">Плануєте орендувати квартиру в Одесі?</p>
+                <p class="desc-footer">За допомогою Java Mind ви зможете зняти квартиру в місті Одеса на будь-який смак та бюджет. Ми подбали, аби оренда квартир в місті Одеса стала зручнішою, і вам було комфортно шукати нерухомість за власними параметрами. Ви можете одразу вказати за якими параметрами сортувати пошук результатів, щоб спочатку відображалися найновіші, найдешевші або перевірені пропозиції.</p>
+                <a href="#" class="btn btn-outline-dark text-decoration-none" th:href="@{/details}">Детальніше</a>
+            </div>
+            <div class="col-md-4 footer-icons">
+                <a href="#" class="icon-link">
+                    <img th:src="@{/photo/footer-file/telegram-icon.png}"  alt="Telegram">
+                </a>
+                <a href="#" class="icon-link">
+                    <img th:src="@{/photo/footer-file/youtube-icon.png}"  alt="YouTube">
+                </a>
+                <a href="#" class="icon-link">
+                    <img th:src="@{/photo/footer-file/facebook-icon.png}"  alt="Facebook">
+                </a>
+                <a href="#" class="icon-link">
+                    <img th:src="@{/photo/footer-file/twitter-icon.png}"  alt="Twitter">
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 footer-bottom">
+                <p>&copy; 2024 Java Mind | Служба турботи 24/7</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

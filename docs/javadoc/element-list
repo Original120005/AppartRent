@@ -1,0 +1,10 @@
+com.rentalapp
+com.rentalapp.config
+com.rentalapp.controllers
+com.rentalapp.Exception
+com.rentalapp.models
+com.rentalapp.repositories
+com.rentalapp.security
+com.rentalapp.services
+com.rentalapp.Utils
+com.rentalapp.validators

@@ -1,0 +1,29 @@
+<form th:action="@{/auth/registration}" th:object="${person}" method="post">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+    <div class="mb-3">
+        <input type="text" class="form-control rounded-pill" th:field="*{firstName}" placeholder="Ім'я" required>
+        <div class="text-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
+    </div>
+    <div class="mb-3">
+        <input type="text" class="form-control rounded-pill" th:field="*{lastName}" placeholder="Прізвище" required>
+        <div class="text-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
+    </div>
+    <div class="mb-3">
+        <input type="email" class="form-control rounded-pill" th:field="*{email}" placeholder="Введіть ваш e-mail" required>
+        <div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+    </div>
+    <div class="mb-3">
+        <input type="password" class="form-control rounded-pill" th:field="*{password}" placeholder="Придумайте пароль" required>
+        <div class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+    </div>
+    <button type="submit" class="btn btn-warning w-100 rounded-pill">Зареєструватись</button>
+</form>
+<hr>
+<div class="text-center">
+    <button class="btn btn-outline-primary w-100 mb-2 rounded-pill">Увійти через Google</button>
+    <button class="btn btn-outline-info w-100 mb-2 rounded-pill">Увійти через Telegram</button>
+    <button class="btn btn-outline-dark w-100 rounded-pill">Увійти через Дію</button>
+</div>
+<div class="modal-footer">
+    <a href="#" class="text-center w-100 text-decoration-none text-reset switch-modal" data-modal-type="login">Увійти на JavaMind</a>
+</div>
