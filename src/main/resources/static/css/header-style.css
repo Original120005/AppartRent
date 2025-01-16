@@ -1,0 +1,127 @@
+.header {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 40px;
+    background: #8FC9F6;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.header .row {
+    width: 100%;
+}
+.navbar>.container-fluid{
+     justify-content: normal !important;
+}
+.header-logo {
+    display: flex;
+}
+.header-logo img {
+    height: 50px;
+}
+.header-search {
+    position: relative;
+    padding-left:10px;
+    padding-right: 10px;
+}
+.header-search input {
+    border-radius: 20px;
+    padding: 8px 50px 8px 40px;
+    width: 100%;
+    border: 1px solid #ccc;
+}
+.header-search .search-icon {
+    position: absolute;
+    top: 50%;
+    left: 25px;
+    transform: translateY(-50%);
+    height: 20px;
+    width: 20px;
+}
+.header-icons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+.header-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    color: #000;
+}
+.header-icons a img {
+    width: 24px;
+    height: 24px;
+}
+.header-icons a.login-button {
+    justify-content: flex-start;
+    padding: 0 10px;
+    border-radius: 20px;
+    background: #fff;
+    width: auto;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.header-icons a.login-button img {
+    margin: 0;
+}
+.header-icons a.login-button span {
+    color: #000;
+    text-decoration: none;
+    white-space: nowrap;
+}
+@media (max-width: 990px) {
+    .header-logo,
+    .header-search,
+    .header-icons {
+        margin-bottom: 10px;
+    }
+    .navbar-nav .nav-item {
+        margin-bottom: 10px;
+    }
+}
+@media (max-width: 550px) {
+    .header {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+@media (max-width: 345px) {
+.navbar>.container-fluid{
+    padding: 0 8px;
+}
+}
+@media (max-width: 768px) {
+    .header-search {
+        width: 60%;
+    }
+}
+/*--------------------------*/
+.form-switch .form-check-input {
+    background-color: #fff;
+    border: 1px solid #000;
+    width: 60px;
+    height: 30px;
+}
+
+.form-switch .form-check-input:checked {
+    background-color: #000;
+    border-color: #000;
+}
+
+.form-switch .form-check-input::before {
+    background-color: #000;
+}
+
+.form-switch .form-check-input:checked::before {
+    background-color: #fff;
+}

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/header-style.css}">
+    <link rel="stylesheet" th:href="@{/css/footer-style.css}">
+    <link rel="stylesheet" th:href="@{/css/main-style.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+<main>
+    <div class="main-filters py-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-auto filter-button">
+                    <button class="btn btn-primary">Арендовать квартиру</button>
+                </div>
+                <div class="col-auto d-md-none">
+                    <button class="btn btn-secondary dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#filtersMenu" aria-expanded="false" aria-controls="filtersMenu">
+                        Фильтры
+                    </button>
+                </div>
+                <div class="col-auto d-none d-md-flex filters">
+                    <select class="form-select" data-filter="priceSort" name="priceSort" onchange="applyFilters()">
+                        <option value="">Цена</option>
+                        <option value="low-to-high" th:selected="${priceSort == 'low-to-high'}">От дешевых к дорогим</option>
+                        <option value="high-to-low" th:selected="${priceSort == 'high-to-low'}">От дорогих к дешевым</option>
+                    </select>
+
+                    <select class="form-select" data-filter="roomCount" name="roomCount" onchange="applyFilters()">
+                        <option value="">Комнаты</option>
+                        <option value="1" th:selected="${roomCount == 1}">1 комната</option>
+                        <option value="2" th:selected="${roomCount == 2}">2 комнаты</option>
+                        <option value="3" th:selected="${roomCount == 3}">3+ комнаты</option>
+                    </select>
+
+                    <select class="form-select" data-filter="areaSize" name="areaSize" onchange="applyFilters()">
+                        <option value="">Площадь</option>
+                        <option value="small" th:selected="${areaSize == 'small'}">До 50 м²</option>
+                        <option value="medium" th:selected="${areaSize == 'medium'}">50-100 м²</option>
+                        <option value="large" th:selected="${areaSize == 'large'}">Больше 100 м²</option>
+                    </select>
+                    <div class="dropdown-multiselect">
+                        <button type="button" class="dropdown-toggle">
+                            Фильтры
+                            <img th:src="@{/photo/main-file/down.svg}" alt="Dropdown Arrow" class="dropdown-icon">
+                        </button>
+                        <div class="dropdown-menu">
+                            <label>
+                                <input type="checkbox" value="Київ" onchange="applyFilters()"> Київ
+                            </label>
+                            <label>
+                                <input type="checkbox" value="Одеса" onchange="applyFilters()"> Одеса
+                            </label>
+                            <label>
+                                <input type="checkbox" value="Львів" onchange="applyFilters()"> Львів
+                            </label>
+                            <label>
+                                <input type="checkbox" value="Харків" onchange="applyFilters()"> Харків
+                            </label>
+                            <label>
+                                <input type="checkbox" value="Дніпро" onchange="applyFilters()"> Дніпро
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="collapse mt-3 d-md-none filters" id="filtersMenu">
+                    <div class="card card-body">
+                            <!-- Сортування за ціною -->
+                            <select class="form-select mb-2" data-filter="priceSort" name="priceSort" onchange="applyFilters()">
+                                <option value="" th:selected="${priceSort == null}">Цена</option>
+                                <option value="low-to-high" th:selected="${priceSort == 'low-to-high'}">От дешевых к дорогим</option>
+                                <option value="high-to-low" th:selected="${priceSort == 'high-to-low'}">От дорогих к дешевым</option>
+                            </select>
+
+                            <!-- Кількість кімнат -->
+                            <select class="form-select mb-2" data-filter="roomCount" name="roomCount" onchange="applyFilters()">
+                                <option value="" th:selected="${roomCount == null}">Комнаты</option>
+                                <option value="1" th:selected="${roomCount == 1}">1 комната</option>
+                                <option value="2" th:selected="${roomCount == 2}">2 комнаты</option>
+                                <option value="3" th:selected="${roomCount == 3}">3+ комнаты</option>
+                            </select>
+
+                            <!-- Площа -->
+                            <select class="form-select mb-2" data-filter="areaSize" name="areaSize" onchange="applyFilters()">
+                                <option value="" th:selected="${areaSize == null}">Площадь</option>
+                                <option value="small" th:selected="${areaSize == 'small'}">До 50 м²</option>
+                                <option value="medium" th:selected="${areaSize == 'medium'}">50-100 м²</option>
+                                <option value="large" th:selected="${areaSize == 'large'}">Больше 100 м²</option>
+                            </select>
+
+                            <!-- Локація -->
+                            <div class="dropdown-multiselect">
+                                <button type="button" class="dropdown-toggle">
+                                Фильтры
+                                    <img src="/photo/main-file/down.svg" alt="Dropdown Arrow" class="dropdown-icon">
+                                </button>
+                                <div class="dropdown-menu">
+                                    <label>
+                                        <input type="checkbox" name="location" value="Київ" onchange="applyFilters()"> Київ
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="location" value="Одеса" onchange="applyFilters()"> Одеса
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="location" value="Львів" onchange="applyFilters()"> Львів
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="location" value="Харків" onchange="applyFilters()"> Харків
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="location" value="Дніпро" onchange="applyFilters()"> Дніпро
+                                    </label>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="apartments-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="apartments-title">Аренда квартир в Одессе</h2>
+                    <p class="apartments-subtitle">15 предложений</p>
+                </div>
+                <div class="col-12 buttons-group">
+                    <select class="form-select">
+                        <option value="newest">Сначала Новые</option>
+                        <option value="oldest">Сначала Старые</option>
+                        <option value="price-low">От дешевых к дорогим</option>
+                        <option value="price-high">От дорогих к дешевым</option>
+                    </select>
+                    <button class="btn btn-map">
+                        Смотреть на карте
+                        <img th:src="@{/photo/main-file/minimap-icon.png}" alt="Map Icon" class="icon">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="property-list">
+        <div class="container" id="propertiesContainer">
+            <div class="row">
+                <div th:each="property : ${properties}" class="property-row">
+                    <div class="property-images">
+                        <div class="main-image" th:if="${property.images != null and property.images.size() > 0}">
+                            <img th:src="${property.images[0].imageUrl}" alt="Main Property Image">
+                        </div>
+                        <div class="additional-images">
+                            <div th:each="image, iterStat : ${property.images}" th:if="${iterStat.index > 0 && iterStat.index < 4}" class="additional-image">
+                                <img th:src="${image.imageUrl}" alt="Additional Property Image" >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="property-text">
+                        <div class="price-container">
+                            <span class="price" th:text="${property.price} + ' грн'"></span>
+                            <div class="icons-wrapper">
+                                <img th:src="@{/photo/main-file/icon1.png}" alt="Icon 1" class="icon">
+                                <img th:src="@{/photo/main-file/icon2.png}" alt="Icon 2" class="icon">
+                            </div>
+                        </div>
+                        <p class="location">
+                            <span th:text="${property.location}"></span>
+                            <img th:src="@{/photo/main-file/location-icon.png}" alt="Location Icon" class="location-icon">
+                        </p>
+                        <p class="details" th:text="${property.residentialComplex + ' • ' +
+                            property.areaName + ' • ' +
+                            property.district + ' • ' +
+                            property.location}"></p>
+                        <ul class="characteristics">
+                            <li th:text="'Кімнат: ' + ${property.roomCount} + ' • Площа: ' + ${#numbers.formatDecimal(property.area, 1, 1)} + ' • Поверх: ' + ${property.floor}"></li>
+                        </ul>
+                        <div class="filter-group">
+                            <p class="filter-object" th:each="tag : ${property.tags}" th:text="${tag.name}"></p>
+                        </div>
+                        <p class="description" th:text="${property.description}">Опис об'єкта</p>
+                        <p class="date-obj" th:text="'Опубліковано ' + ${#temporals.format(property.publicationDate, 'd MMM')}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<!-- Показуємо пагінацію, тільки якщо є більше однієї сторінки -->
+<div class="load-more-container">
+    <!-- Кнопка "Показати ще" -->
+    <button class="btn btn-load-more"
+            th:if="${currentPage < totalPages - 1}"
+            th:onclick="|window.location.href='@{/home(page=${currentPage + 1})}'|">
+        Показати ще
+        <img th:src="@{/photo/main-file/load-more-icon.png}" alt="Reload Icon" class="reload-icon">
+    </button>
+</div>
+
+<!-- Пагінація -->
+<div class="load-more-container" th:if="${totalPages > 1}">
+    <!-- Перша сторінка -->
+    <button type="button"
+            th:class="${currentPage == 0} ? 'btn btn-dark rounded-circle btn-lg' : 'btn btn-outline-dark rounded-circle btn-lg'"
+            th:onclick="|window.location.href='@{/home(page=0)}'|">
+        1
+    </button>
+
+    <!-- Три крапки на початку -->
+    <button type="button" class="btn btn-outline-dark rounded-circle btn-lg"
+            th:if="${currentPage > 2}">...</button>
+
+    <!-- Поточна та сусідні сторінки -->
+    <th:block th:if="${currentPage > 0 && currentPage < totalPages - 1}">
+        <button type="button"
+                class="btn btn-dark rounded-circle btn-lg"
+                th:text="${currentPage + 1}"
+                th:onclick="|window.location.href='@{/home(page=${currentPage})}'|">
+        </button>
+    </th:block>
+
+    <!-- Три крапки в кінці -->
+    <button type="button" class="btn btn-outline-dark rounded-circle btn-lg"
+            th:if="${currentPage < totalPages - 3}">...</button>
+
+    <!-- Остання сторінка -->
+    <button type="button"
+            th:if="${totalPages > 1}"
+            th:class="${currentPage == totalPages - 1} ? 'btn btn-dark rounded-circle btn-lg' : 'btn btn-outline-dark rounded-circle btn-lg'"
+            th:text="${totalPages}"
+            th:onclick="|window.location.href='@{/home(page=${totalPages - 1})}'|">
+    </button>
+</div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script th:inline="javascript">
+    function updatePageUrl(page) {
+        const urlParams = new URLSearchParams(window.location.search);
+        urlParams.set('page', page);
+        window.location.href = '?' + urlParams.toString();
+    }
+</script>
+<script>
+    // Додайте цей JavaScript код
+    document.addEventListener('DOMContentLoaded', function() {
+        const dropdownToggles = document.querySelectorAll('.dropdown-multiselect .dropdown-toggle');
+
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const menu = this.nextElementSibling;
+                menu.classList.toggle('show');
+            });
+        });
+    });
+    // Функція для роботи з дропдауном
+    function toggleDropdown(event) {
+        // Знаходимо найближчий .dropdown-multiselect до кнопки, яка була натиснута
+        const dropdownContainer = event.target.closest('.dropdown-multiselect');
+        const dropdownMenu = dropdownContainer.querySelector('.dropdown-menu');
+
+        // Закриваємо всі інші відкриті дропдауни
+        document.querySelectorAll('.dropdown-multiselect .dropdown-menu.show').forEach(menu => {
+            if (menu !== dropdownMenu) {
+                menu.classList.remove('show');
+            }
+        });
+
+        // Перемикаємо клас show для поточного дропдауну
+        dropdownMenu.classList.toggle('show');
+
+        // Запобігаємо закриттю при кліку всередині дропдауну
+        event.stopPropagation();
+    }
+
+    // Закриваємо дропдаун при кліку поза ним
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.dropdown-multiselect')) {
+            document.querySelectorAll('.dropdown-multiselect .dropdown-menu').forEach(menu => {
+                menu.classList.remove('show');
+            });
+        }
+    });
+
+    function applyFilters() {
+        // Отримуємо значення з обох версій фільтрів (desktop і mobile)
+        const filters = {
+            priceSort: '',
+            roomCount: '',
+            areaSize: '',
+            locations: []
+        };
+
+        // Знаходимо активний контейнер фільтрів (desktop або mobile)
+        const activeContainer = window.innerWidth >= 768
+            ? document.querySelector('.d-none.d-md-flex.filters')
+            : document.querySelector('.collapse.filters');
+
+        // Отримуємо значення з активного контейнера
+        if (activeContainer) {
+            filters.priceSort = activeContainer.querySelector('[data-filter="priceSort"]')?.value || '';
+            filters.roomCount = activeContainer.querySelector('[data-filter="roomCount"]')?.value || '';
+            filters.areaSize = activeContainer.querySelector('[data-filter="areaSize"]')?.value || '';
+
+            // Збираємо вибрані локації
+            const locationCheckboxes = activeContainer.querySelectorAll('.dropdown-menu input[type="checkbox"]:checked');
+            filters.locations = Array.from(locationCheckboxes).map(cb => cb.value);
+        }
+
+        // Формуємо URL
+        let url = '/home?';
+        if (filters.priceSort) url += `priceSort=${filters.priceSort}&`;
+        if (filters.roomCount) url += `roomCount=${filters.roomCount}&`;
+        if (filters.areaSize) url += `areaSize=${filters.areaSize}&`;
+        if (filters.locations.length) url += filters.locations.map(loc => `location=${loc}`).join('&');
+
+        // Відправляємо запит
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const newProperties = doc.getElementById('propertiesContainer');
+                if (newProperties) {
+                    document.getElementById('propertiesContainer').innerHTML = newProperties.innerHTML;
+                }
+            })
+            .catch(error => console.error('Error updating properties:', error));
+    }
+
+    // Додаємо CSS для відображення дропдауну
+    const style = document.createElement('style');
+    style.textContent = `
+    .dropdown-menu.show {
+        display: block !important;
+    }
+`;
+    document.head.appendChild(style);
+
+    // Ініціалізація подій для всіх кнопок дропдауну
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.dropdown-multiselect .dropdown-toggle').forEach(button => {
+            button.addEventListener('click', toggleDropdown);
+        });
+    });
+</script>
+</body>
+<script src="/js/header-login.js"></script>
+</html>

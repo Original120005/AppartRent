@@ -1,0 +1,146 @@
+.ct {
+    max-width: 800px;
+    padding: 30px 20px;
+    margin: 40px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Стилі для заголовка */
+.ct h1 {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Стилі для форми */
+.ct .property-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Стилі для груп форми */
+.ct .form-group {
+    margin-bottom: 15px;
+}
+
+/* Стилі для лейблів */
+.ct label {
+    display: block;
+    margin-bottom: 8px;
+    color: #34495e;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* Стилі для інпутів */
+.ct input[type="text"],
+.ct input[type="number"],
+.ct textarea,
+.ct select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Стилі для текстової області */
+.ct textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Стилі при наведенні та фокусі на інпути */
+.ct input:hover,
+.ct textarea:hover,
+.ct select:hover {
+    border-color: #3498db;
+}
+
+.ct input:focus,
+.ct textarea:focus,
+.ct select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* Стилі для кнопки */
+.ct .btn-submit {
+    background-color: #3498db;
+    color: white;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.ct .btn-submit:hover {
+    background-color: #2980b9;
+}
+
+/* Адаптивний дизайн */
+@media (max-width: 768px) {
+    .ct {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .ct input[type="text"],
+    .ct input[type="number"],
+    .ct textarea,
+    .ct select {
+        padding: 10px;
+    }
+
+    .ct .btn-submit {
+        padding: 12px 24px;
+    }
+}
+
+/* Стилі для повідомлень про помилки валідації */
+.ct input:invalid,
+.ct textarea:invalid,
+.ct select:invalid {
+    border-color: #e74c3c;
+}
+
+/* Зірочка тільки для лейблів з класом required-label */
+.required-label::after {
+    content: '*';
+    color: #e74c3c;
+    margin-left: 4px;
+}
+
+/* Вимкнути зірочку для інших лейблів */
+label::after {
+    content: none;
+}
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0;
+}
+.tags-container label{
+ margin-bottom: 0;
+}
+.tag-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.tag-checkbox input[type="checkbox"] {
+    margin-right: 5px;
+}
